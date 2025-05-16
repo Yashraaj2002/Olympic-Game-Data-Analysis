@@ -21,26 +21,25 @@ The dataset consists of two main tables:
 
 ## 📌 Key Questions Solved
 
-1.  ✅ How many Olympics Games have been held?
-2.  ✅ List all Olympic Games held so far.
-3.  ✅ Number of nations who participated in each Olympic Game.
-4.  ✅ Which year saw the highest and lowest number of countries participating?
-5.  ✅ Nation that participated in all Olympic Games.
-6.  ✅ Sport played in all Summer Olympics.
-7.  ✅ Sports played only once in Olympic history.
-8.  ✅ Total number of sports played in each Olympic Game.
-9.  ✅ Details of the oldest athlete to win a gold medal.
-10. ✅ Ratio of male to female athletes in Olympic history.
-11. ✅ Top 5 athletes with most gold medals.
-12. ✅ Top 5 athletes with most total medals.
-13. ✅ Top 5 most successful countries by medal count.
-14. ✅ Total gold, silver, and bronze medals by country.
-15. ✅ Medals by country for each Olympic Game.
-16. ✅ Countries with the most gold, silver, and bronze in each Olympic Game.
-17. ✅ Countries with most medals (gold/silver/bronze/total) per Olympic Game.
-18. ✅ Countries that never won gold but won silver/bronze.
-19. ✅ Sport/event where India won the most medals.
-20. ✅ All Olympic Games where India won medals in Hockey.
+1. How many Olympics Games have been held?
+2. List all Olympic Games held so far.
+3. Number of nations who participated in each Olympic Game.
+4. Which year saw the highest and lowest number of countries participating?
+5. Nation that participated in all Olympic Games.
+6. Sport played in all Summer Olympics.
+7. Sports played only once in Olympic history.
+8. Total number of sports played in each Olympic Game.
+9. Details of the oldest athlete to win a gold medal.
+10. Ratio of male to female athletes in Olympic history.
+11. Top 5 athletes with most gold medals.
+12. Top 5 athletes with most total medals.
+13. Top 5 most successful countries by medal count.
+14. Total gold, silver, and bronze medals by country.
+15. Countries with the most gold, silver, and bronze in each Olympic Game.
+16. Countries with most medals (gold/silver/bronze/total) per Olympic Game.
+17. Countries that never won gold but won silver/bronze.
+18. Sport/event where India won the most medals.
+19. All Olympic Games where India won medals in Hockey.
 
 ---
 
