@@ -81,6 +81,3 @@ The dataset consists of two main tables:
 ## 📌 Author
 Yash Raj
 https://github.com/Yashraaj2002
-
-- **Your Name**
-- [Your GitHub Profile](https://github.com/yourusername)
