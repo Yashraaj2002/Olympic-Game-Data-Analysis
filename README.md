@@ -48,7 +48,6 @@ The dataset consists of two main tables:
 
 - PostgreSQL / MySQL
 - SQL Joins, Aggregations, CTEs, Window Functions
-- Power BI / Excel (optional, for visualization)
 
 ---
 
@@ -58,7 +57,6 @@ The dataset consists of two main tables:
 |------|-------------|
 | `olympics_queries.sql` | All SQL queries used to generate insights |
 | `README.md` | Project overview and insights |
-| `visuals/` | Optional visualizations created (charts, Power BI screenshots) |
 
 ---
 
@@ -69,12 +67,6 @@ The dataset consists of two main tables:
 - **India’s highest medal count** comes from **Hockey**, historically.
 - **Some countries have never won gold**, but still secured silver or bronze.
 - **Oldest gold medalist** proved age is no barrier to Olympic glory.
-
----
-
-## 📸 Sample Visualization (Optional)
-
-> ![Sample Medal Chart](visuals/medals_by_country.png)
 
 ---
 
