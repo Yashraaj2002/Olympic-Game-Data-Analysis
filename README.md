@@ -36,10 +36,9 @@ The dataset consists of two main tables:
 13. Top 5 most successful countries by medal count.
 14. Total gold, silver, and bronze medals by country.
 15. Countries with the most gold, silver, and bronze in each Olympic Game.
-16. Countries with most medals (gold/silver/bronze/total) per Olympic Game.
-17. Countries that never won gold but won silver/bronze.
-18. Sport/event where India won the most medals.
-19. All Olympic Games where India won medals in Hockey.
+16. Countries that never won gold but won silver/bronze.
+17. Sport/event where India won the most medals.
+18. All Olympic Games where India won medals in Hockey.
 
 ---
 
@@ -54,8 +53,10 @@ The dataset consists of two main tables:
 
 | File | Description |
 |------|-------------|
-| `olympics_queries.sql` | All SQL queries used to generate insights |
+| `Data` | Sample Dataset |
 | `README.md` | Project overview and insights |
+| `olympics_queries.sql` | All SQL queries used to generate insights |
+| `Schema.png` | Schema Screenshot |
 
 ---
 
