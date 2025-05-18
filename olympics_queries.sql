@@ -148,6 +148,7 @@
     select name, team, total_gold_medals
     from t2
     where rnk <= 5;
+
 12 Fetch the top 5 athletes who have won the most medals (gold/silver/bronze).
   
     with t1 as
@@ -197,4 +198,74 @@
     AS FINAL_RESULT(country varchar, bronze bigint, gold bigint, silver bigint)
     order by gold desc, silver desc, bronze desc;
 
+15 Identify which country won the most gold, most silver and most bronze medals in each olympic games.
+ 
+ WITH temp as
+    	(SELECT substring(games, 1, position(' - ' in games) - 1) as games
+    	 	, substring(games, position(' - ' in games) + 3) as country
+            , coalesce(gold, 0) as gold
+            , coalesce(silver, 0) as silver
+            , coalesce(bronze, 0) as bronze
+    	FROM CROSSTAB('SELECT concat(games, '' - '', nr.region) as games
+    					, medal
+    				  	, count(1) as total_medals
+    				  FROM olympics_history oh
+    				  JOIN olympics_history_noc_regions nr ON nr.noc = oh.noc
+    				  where medal <> ''NA''
+    				  GROUP BY games,nr.region,medal
+    				  order BY games,medal',
+                  'values (''Bronze''), (''Gold''), (''Silver'')')
+    			   AS FINAL_RESULT(games text, bronze bigint, gold bigint, silver bigint))
+    select distinct games
+    	, concat(first_value(country) over(partition by games order by gold desc)
+    			, ' - '
+    			, first_value(gold) over(partition by games order by gold desc)) as Max_Gold
+    	, concat(first_value(country) over(partition by games order by silver desc)
+    			, ' - '
+    			, first_value(silver) over(partition by games order by silver desc)) as Max_Silver
+    	, concat(first_value(country) over(partition by games order by bronze desc)
+    			, ' - '
+    			, first_value(bronze) over(partition by games order by bronze desc)) as Max_Bronze
+    from temp
+    order by games;
 
+16 Which countries have never won gold medal but have won silver/bronze medals?
+  
+ select * from (
+    	SELECT country, coalesce(gold,0) as gold, coalesce(silver,0) as silver, coalesce(bronze,0) as bronze
+    		FROM CROSSTAB('SELECT nr.region as country
+    					, medal, count(1) as total_medals
+    					FROM OLYMPICS_HISTORY oh
+    					JOIN OLYMPICS_HISTORY_NOC_REGIONS nr ON nr.noc=oh.noc
+    					where medal <> ''NA''
+    					GROUP BY nr.region,medal order BY nr.region,medal',
+                    'values (''Bronze''), (''Gold''), (''Silver'')')
+    		AS FINAL_RESULT(country varchar,
+    		bronze bigint, gold bigint, silver bigint)) x
+    where gold = 0 and (silver > 0 or bronze > 0)
+    order by gold desc nulls last, silver desc nulls last, bronze desc nulls last;
+
+17 In which Sport/event, India has won highest medals.
+
+ with t1 as
+        	(select sport, count(1) as total_medals
+        	from olympics_history
+        	where medal <> 'NA'
+        	and team = 'India'
+        	group by sport
+        	order by total_medals desc),
+        t2 as
+        	(select *, rank() over(order by total_medals desc) as rnk
+        	from t1)
+    select sport, total_medals
+    from t2
+    where rnk = 1;
+
+18 Break down all olympic games where india won medal for Hockey and how many medals in each olympic games.
+
+ select team, sport, games, count(1) as total_medals
+    from olympics_history
+    where medal <> 'NA'
+    and team = 'India' and sport = 'Hockey'
+    group by team, sport, games
+    order by total_medals desc;
